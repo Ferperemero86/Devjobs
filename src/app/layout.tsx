@@ -1,5 +1,6 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
 import { Poppins } from "next/font/google";
+
+import "tailwindcss/tailwind.css";
 
 const poppins = Poppins({
   weight: "400",
