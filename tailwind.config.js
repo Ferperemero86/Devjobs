@@ -7,7 +7,14 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "mobile-header": "url(/images/mobile/bg-pattern-header.svg)",
+      },
+      colors: {
+        violet: "#5964E0",
+      },
+    },
   },
   plugins: [],
 };
