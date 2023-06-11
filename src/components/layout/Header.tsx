@@ -6,6 +6,7 @@ import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 export default function Header() {
+
   return (
     <header className="header container bg-[url('/images/mobile/bg-pattern-header.svg')] h-32 p-6 fle gap-x-16">
       <div className="flex items-center justify-between">
