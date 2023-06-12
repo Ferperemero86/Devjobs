@@ -12,19 +12,14 @@ export default function Home() {
   const count = useAppSelector(state => state.counter.value)
   const dispatch = useAppDispatch()
 
-  console.log(count);
+  console.log('render');
   const addCount = () => {
     dispatch(increment());
   }
  
   return (
-    <main className="relative">
-      <div className={`bg-${mainBg} min-h-screen w-full absolute`}></div>
-      <div className="relative z-10">
-        <h1>jobs</h1>
-        <p>{count}</p>
-        <button onClick={addCount}>Add</button>
-      </div>
+    <main className={`bg-${mainBg} min-h-screen w-full absolute`}>
+     
     </main>
   );
 }

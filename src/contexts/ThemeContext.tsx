@@ -17,7 +17,7 @@ export interface ThemeContextProps {
 
 const defaultState = {
   theme: {
-    mainBg: "white",
+    mainBg: "firstColor",
   },
   setTheme: (theme: Theme) => {},
 };

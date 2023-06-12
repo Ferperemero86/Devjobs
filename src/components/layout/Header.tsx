@@ -5,10 +5,12 @@ import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
 
+import SearchForm from "../ui/SearchForm";
+
 export default function Header() {
 
   return (
-    <header className="header container bg-[url('/images/mobile/bg-pattern-header.svg')] h-32 p-6 fle gap-x-16">
+    <header className="header overflow-visible w-full bg-[url('/images/mobile/bg-pattern-header.svg')] h-32 p-6 fle gap-x-16">
       <div className="flex items-center justify-between">
         <Image
           src="/images/desktop/logo.svg"
@@ -28,6 +30,7 @@ export default function Header() {
           />
         </div>
       </div>
+      <SearchForm customStyles="relative top-8 z-10"/>
     </header>
   );
 }
