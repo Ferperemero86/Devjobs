@@ -18,7 +18,7 @@ export default function Home() {
   }
  
   return (
-    <main className={`bg-${mainBg} min-h-screen w-full absolute`}>
+    <main className={`${mainBg} min-h-screen w-full absolute`}>
      
     </main>
   );

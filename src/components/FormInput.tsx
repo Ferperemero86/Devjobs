@@ -28,8 +28,10 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
             <FontAwesomeIcon
                     icon={faMagnifyingGlass}
                     style={{ fontSize: 25, position: "absolute", top: "50%", transform: "translateY(-50%)", zIndex: "100", right: "1.5rem", background: "#5964E0", color: "fff", padding: "10px", borderRadius: "5px"}}/>
-           
+            <div>
             <input type={type} onChange={onChange} className={`${customStyles} rounded-lg relative`} placeholder={placeholder} />
+            </div>
+            
         </>
     )
 }

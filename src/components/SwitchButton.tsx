@@ -7,11 +7,11 @@ export default function SwitchButton() {
   const { mainBg } = theme;
 
   const changeBg = () => {
-    if (mainBg === "firstColor") {
-      return setTheme({mainBg: "secondColor"});
+    if (mainBg === "bg-firstColor") {
+      return setTheme({mainBg: "bg-secondColor"});
     }
-    if (mainBg === "secondColor") {
-      return setTheme({mainBg: "firstColor"});
+    if (mainBg === "bg-secondColor") {
+      return setTheme({mainBg: "bg-firstColor"});
     }
   }
 
