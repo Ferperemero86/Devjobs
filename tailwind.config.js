@@ -14,7 +14,9 @@ module.exports = {
       colors: {
         firstColor: "#f2f2f2",
         secondColor: "#000",
-        thirdColor: "#5964E0"
+        thirdColor: "#5964E0",
+        fourthColor: "#6E8098",
+        fifthColor: "#19202D"
       },
     },
   },
