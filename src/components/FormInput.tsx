@@ -20,7 +20,7 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
 
     return (
         <>
-            <div className="relative inline-block left-1/2, -translate-x-1/2">
+            <div className="relative inline-block left-1/2 -translate-x-1/2">
                 <span onClick={openFilter}>
                     <FontAwesomeIcon
                         icon={faFilter}
