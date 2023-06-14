@@ -1,4 +1,5 @@
 "use client"
+import React, { Fragment } from "react";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import { useContext } from "react";
 
@@ -13,21 +14,22 @@ const Jobs = () => {
   const {theme} = useContext(ThemeContext);
   const {mainBg} = theme;
   return (
-    <div className={`${mainBg} relative w-full top-14`}>
+    <div className={`${mainBg} relative w-full top-20`}>
       {data.map((job, idx) => {
         const { logo, logoBackground, postedAt, contract, position, company, location } = job;
         return (
-          <JobPanel
-            imageSrc={logo}
-            imageBg={logoBackground}
-            contract={contract}
-            timePosted={postedAt}
-            title={position}
-            companyName={company}
-            location={location}
-            customStyles="mt-14"
-            idx={idx}
+          <Fragment key={idx}>
+             <JobPanel
+              imageSrc={logo}
+              imageBg={logoBackground}
+              contract={contract}
+              timePosted={postedAt}
+              title={position}
+              companyName={company}
+              location={location}
+              customStyles="mt-14 m-auto w-11/12"
           />
+          </Fragment>
         );
       })}
     </div>
