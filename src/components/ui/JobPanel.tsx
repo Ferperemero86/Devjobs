@@ -27,7 +27,9 @@ export default function JobPanel({imageSrc, imageBg, timePosted, contract, title
     return(
         <div className={`${customStyles} ${bgColor} relative max-w-sm p-5 rounded-md`}>
             <span style={bgStyles} className="absolute -top-7 flex justify-center items-center w-16 h-16 rounded-md">
-                <Image src={imageSrc} alt="job logo" width={50} height={50} />
+							<span className="w-10 h-10 relative">
+								<Image src={imageSrc} alt="job logo" fill={true} />
+							</span>
             </span>
             <p className="mt-8 text-fourthColor">{`${timePosted} . ${contract}`}</p>
             <p className={`${titleColor} text-fifthColor text-lg font-bold mt-1`}>{title}</p>

@@ -7,7 +7,7 @@ import ThemeProvider from "../contexts/ThemeContext";
 
 import Header from "../components/layout/Header";
 
-import {store} from "../../state/store";
+import {store} from "../state/store";
 import { Provider } from "react-redux";
 
 export default function RootLayout({
