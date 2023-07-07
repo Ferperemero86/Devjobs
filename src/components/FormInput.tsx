@@ -1,5 +1,7 @@
-import React from "react"
+import { useContext } from "react";
 import {ChangeEvent} from "react";
+
+import { ThemeContext } from "../contexts/ThemeContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -13,6 +15,9 @@ interface InputProps {
 
 
 export default function FormInput({type, onChange, customStyles, placeholder}: InputProps) {
+	const {theme} = useContext(ThemeContext);
+  const {mainBg} = theme;
+  const bgColor = mainBg ==="bg-secondColor" ? "bg-fifthColor" : "bg-white";
 
     const openFilter = () => {
         console.log('open');
@@ -29,7 +34,7 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
                 <FontAwesomeIcon
                         icon={faMagnifyingGlass}
                         style={{ fontSize: 25, position: "absolute", top: "50%", transform: "translateY(-50%)", zIndex: "100", right: "1.5rem", background: "#5964E0", color: "fff", padding: "10px", borderRadius: "5px"}}/>
-                <input type={type} onChange={onChange} className={`${customStyles} rounded-lg`} placeholder={placeholder} />
+                <input type={type} onChange={onChange} className={`${customStyles} ${bgColor} rounded-lg`} placeholder={placeholder} />
             </div>
             
         </>

@@ -16,7 +16,8 @@ module.exports = {
         secondColor: "#000",
         thirdColor: "#5964E0",
         fourthColor: "#6E8098",
-        fifthColor: "#19202D"
+        fifthColor: "#19202D",
+				sixthColor: "#5964E0"
       },
     },
   },
