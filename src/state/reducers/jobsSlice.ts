@@ -46,7 +46,11 @@ export const jobsSlice = createSlice({
   initialState,
   reducers: {
     incrementJobs: (state, action: PayloadAction<jobsPayload>) => {
-      state.jobsListNumber += 7;
+      state.jobsListNumber += 6;
+	    state.jobsList = action.payload.filter((job, idx) => idx < state.jobsListNumber);
+    },
+		decreaseJobs: (state, action: PayloadAction<jobsPayload>) => {
+      state.jobsListNumber -= 6;
 	    state.jobsList = action.payload.filter((job, idx) => idx < state.jobsListNumber);
     },
 		updateFullJobsList: (state, action: PayloadAction<jobsPayload>) => {

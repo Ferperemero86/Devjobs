@@ -15,15 +15,10 @@ const Jobs = () => {
   const {theme} = useContext(ThemeContext);
   const {mainBg} = theme;
 	const {jobsReducer} = useAppSelector(state => state);
-	const {jobsList, fullJobsList} = jobsReducer;
-	const dispatch = useAppDispatch();
-
-  const handleJobsList = () => {
-    dispatch(incrementJobs(fullJobsList));
-	}
+	const {jobsList} = jobsReducer;
 
   return (
-    <div className={`${mainBg} relative w-full top-20 pb-12`}>
+    <div className={`${mainBg} w-full pb-12 md:grid md:grid-cols-2 lg:grid-cols-3 max-w-screen-xl m-auto`}>
       {jobsList.map((job, idx) => {
         const { logo, logoBackground, postedAt, contract, position, company, location } = job;
         return (
@@ -42,7 +37,6 @@ const Jobs = () => {
         );
       })}
 
-			<LoadMoreBtn onClick={handleJobsList} />
     </div>
   );
 };
@@ -53,6 +47,11 @@ export default function Home() {
 
   const {jobsReducer} = useAppSelector(state => state);
   const dispatch = useAppDispatch();
+	const {fullJobsList} = jobsReducer;
+
+	const handleJobsList = () => {
+    dispatch(incrementJobs(fullJobsList));
+	}
 
 	useEffect(() => {
 		dispatch(updateFullJobsList(data));
@@ -61,8 +60,9 @@ export default function Home() {
 
  
   return (
-    <main className={`${mainBg} min-h-screen h-full w-full absolute`}>
+    <main className={`${mainBg} min-h-screen py-20`}>
       <Jobs />
+			<LoadMoreBtn onClick={handleJobsList} />
     </main>
   );
 }

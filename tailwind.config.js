@@ -19,6 +19,9 @@ module.exports = {
         fifthColor: "#19202D",
 				sixthColor: "#5964E0"
       },
+			screens: {
+				'xs': '340px'
+			}
     },
   },
   plugins: [],
