@@ -17,7 +17,8 @@ module.exports = {
         thirdColor: "#5964E0",
         fourthColor: "#6E8098",
         fifthColor: "#19202D",
-				sixthColor: "#5964E0"
+				sixthColor: "#5964E0",
+				gray1: "#f2f2f2"
       },
 			screens: {
 				'xs': '340px'

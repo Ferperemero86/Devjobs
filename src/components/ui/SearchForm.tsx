@@ -1,7 +1,7 @@
 import FormInput from "../FormInput";
 
 type SearchFormProps = {
-    customStyles?: string
+    customStyles?: string,
 }
 
 export default function SearchForm ({customStyles}: SearchFormProps) {
@@ -10,8 +10,10 @@ export default function SearchForm ({customStyles}: SearchFormProps) {
     }
 
     return (
-        <form className={`${customStyles}` }>
-            <FormInput type="text" onChange={searchJob} placeholder="Search by Title..." customStyles="h-20 w-80 p-2"/>
+        <form className={`${customStyles} md:flex justify-center md:divide-x-2` }>
+            <FormInput type="title" onChange={searchJob} placeholder="Search by Title..." customStyles="h-20 relative inline-block left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 flex-1" />
+						<FormInput type="location" onChange={searchJob} placeholder="Filter by location..." customStyles="hidden h-20 relative inline-block left-1/2 -translate-x-1/2 hidden md:left-0 md:translate-x-0 md:flex flex-1" />
+						<FormInput type="contract" onChange={searchJob} customStyles="bg-white rounded-lg h-20 pl-6 relative flex items-center left-1/2 -translate-x-1/2 md:left-0 hidden md:translate-x-0 md:flex flex-1" />
         </form>
     )
 }
