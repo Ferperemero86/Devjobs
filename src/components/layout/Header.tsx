@@ -30,7 +30,7 @@ export default function Header() {
           />
         </div>
       </div>
-      <SearchForm customStyles="relative top-8 z-10"/>
+      <SearchForm customStyles="relative top-8 z-10 md:rounded-lg md:border md:border-solid md:border-gray2"/>
     </header>
   );
 }

@@ -34,7 +34,7 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
             <FontAwesomeIcon
                     icon={faMagnifyingGlass}
                     style={{ fontSize: 25, position: "absolute", top: "50%", transform: "translateY(-50%)", zIndex: "100", right: "1.5rem", background: "#5964E0", color: "fff", padding: "10px", borderRadius: "5px"}}/>
-            <input type="text" onChange={onChange} className={`${customStyles} ${bgColor} rounded-lg w-80 md:w-full md:rounded-tr-none pl-2`} placeholder={placeholder} />
+            <input type="text" onChange={onChange} className={`${customStyles} ${bgColor} rounded-lg w-80 md:w-full md:rounded-tr-none md:rounded-br-none pl-2 md:border-r md:border-gray1 md:border-solid`} placeholder={placeholder} />
         </div>
     	)
 		}
@@ -45,13 +45,13 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
             <FontAwesomeIcon
                     icon={faLocationDot}
                     style={{ fontSize: 25, position: "absolute", top: "50%", transform: "translateY(-50%)", zIndex: "100", right: "1.5rem", color: "#5964e0"}}/>
-            				<input type="text" onChange={onChange} className={`${customStyles} ${bgColor} pl-2`} placeholder={placeholder} />
+            				<input type="text" onChange={onChange} className={`${customStyles} ${bgColor} pl-2 md:border-r md:border-gray1 md:border-solid`} placeholder={placeholder} />
         </div>
 			)
 		} else  {
 			
 			return (
-				<div className={`${customStyles} rounded-tl-none`}>
+				<div className={`${customStyles} ${bgColor} rounded-tl-none md:rounded-bl-none`}>
 					<div className="flex gap-2">
 						<input type="checkbox" onChange={onChange} className={`rounded-lg`} placeholder={placeholder} />
 						<p className="font-bold">Full Time</p>
