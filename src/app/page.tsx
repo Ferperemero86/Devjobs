@@ -1,18 +1,20 @@
 "use client"
 import React, { Fragment, useEffect } from "react";
+import Link from 'next/link';
 import { ThemeContext } from "@/contexts/ThemeContext";
 import { useContext } from "react";
 
 import { filterJobs, incrementJobs, decreaseJobs, updateFullJobsList } from "@/state/reducers/jobsSlice";
 import { useAppSelector, useAppDispatch } from "@/state/hooks";
 
+import SearchForm from "@/components/ui/SearchForm";
 import JobPanel from "@/components/ui/JobPanel";
 import LoadMoreBtn from "@/components/LoadMoreBtn";
 
 import data from "../../data";
 
 const Jobs = () => {
-	const {jobsReducer} = useAppSelector(state => state);
+	const jobsReducer = useAppSelector(state => state.jobsReducer);
 	const {jobsList} = jobsReducer;
 
   return (
@@ -21,6 +23,7 @@ const Jobs = () => {
         const { logo, logoBackground, postedAt, contract, position, company, location } = job;
         return (
           <Fragment key={idx}>
+						<Link href={`/jobs/${job.id}`}>
              <JobPanel
               imageSrc={logo}
               imageBg={logoBackground}
@@ -29,8 +32,8 @@ const Jobs = () => {
               title={position}
               companyName={company}
               location={location}
-              customStyles="mt-14 m-auto w-11/12"
-          />
+              customStyles="mt-14 m-auto w-11/12"/>
+						</Link>
           </Fragment>
         );
       })}
@@ -42,8 +45,9 @@ const Jobs = () => {
 export default function Home() {
   const {theme} = useContext(ThemeContext);
   const {mainBg} = theme;
+	const borderColor = mainBg ==="bg-secondColor" ? "border-0" : "md:border md:border-gray2";
 
-  const {jobsReducer} = useAppSelector(state => state);
+  const jobsReducer = useAppSelector(state => state.jobsReducer);
 	const {loadMoreJobs, loadLessJobs, fullJobsSearch} = jobsReducer;
   const dispatch = useAppDispatch();
 
@@ -63,7 +67,8 @@ export default function Home() {
 
  
   return (
-    <main className={`${mainBg} min-h-screen py-20`}>
+    <main className={`${mainBg} min-h-screen`}>
+			<SearchForm customStyles={`relative -top-10 z-10 md:rounded-lg md:border-solid ${borderColor} md:w-11/12`} />
       <Jobs />
 			{loadMoreJobs && fullJobsSearch.length > 6 ? <LoadMoreBtn onClick={increaseJobsList} text="Show more" /> 
 			:  loadLessJobs && fullJobsSearch.length > 6 ? <LoadMoreBtn onClick={decreaseJobsList} text="Show Less" />

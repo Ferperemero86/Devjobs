@@ -35,7 +35,7 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
             <FontAwesomeIcon
                     icon={faMagnifyingGlass}
                     style={{ fontSize: 25, position: "absolute", top: "50%", transform: "translateY(-50%)", zIndex: "100", right: "1.5rem", background: "#5964E0", color: "fff", padding: "10px", borderRadius: "5px"}}/>
-            <input type="text" onChange={onChange} className={`${customStyles} ${bgColor} rounded-lg w-80 md:w-full md:rounded-tr-none md:rounded-br-none pl-2 border md:border-0 md:border-r border-gray1 md:border-solid`} placeholder={placeholder} />
+            <input type="text" onChange={onChange} className={`${customStyles} ${bgColor} ${labelColor} rounded-lg w-80 md:w-full md:rounded-tr-none md:rounded-br-none pl-2 border md:border-0 md:border-r border-gray1 md:border-solid`} placeholder={placeholder} />
         </div>
     	)
 		}

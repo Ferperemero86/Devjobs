@@ -129,13 +129,6 @@ export const jobsSlice = createSlice({
 				}
 			}
 
-			if (!state.loadMoreJobs && !state.loadLessJobs) {
-				if (state.fullJobsSearch.length > state.jobsListNumber) {
-						state.loadMoreJobs = true;
-						state.loadLessJobs = false;
-				}
-			}
-
 		}
   }
 })
