@@ -12,7 +12,7 @@ module.exports = {
         "mobile-header": "url(/images/mobile/bg-pattern-header.svg)",
       },
       colors: {
-        firstColor: "#f2f2f2",
+        firstColor: "#F4F6F8",
         secondColor: "#000",
         thirdColor: "#5964E0",
         fourthColor: "#6E8098",

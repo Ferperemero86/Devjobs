@@ -18,11 +18,12 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
 	const {theme} = useContext(ThemeContext);
   const {mainBg} = theme;
   const bgColor = mainBg ==="bg-secondColor" ? "bg-fifthColor" : "bg-white";
+	const labelColor = mainBg ==="bg-secondColor" ?  "text-white" : "text-fifthColor";
 
     const openFilter = () => {
         console.log('open');
     }
-    console.log(type);
+   
 		if (type === "title") {
 			return (
         <div className={`${customStyles}`}>
@@ -34,7 +35,7 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
             <FontAwesomeIcon
                     icon={faMagnifyingGlass}
                     style={{ fontSize: 25, position: "absolute", top: "50%", transform: "translateY(-50%)", zIndex: "100", right: "1.5rem", background: "#5964E0", color: "fff", padding: "10px", borderRadius: "5px"}}/>
-            <input type="text" onChange={onChange} className={`${customStyles} ${bgColor} rounded-lg w-80 md:w-full md:rounded-tr-none md:rounded-br-none pl-2 md:border-r md:border-gray1 md:border-solid`} placeholder={placeholder} />
+            <input type="text" onChange={onChange} className={`${customStyles} ${bgColor} rounded-lg w-80 md:w-full md:rounded-tr-none md:rounded-br-none pl-2 border md:border-0 md:border-r border-gray1 md:border-solid`} placeholder={placeholder} />
         </div>
     	)
 		}
@@ -54,7 +55,7 @@ export default function FormInput({type, onChange, customStyles, placeholder}: I
 				<div className={`${customStyles} ${bgColor} rounded-tl-none md:rounded-bl-none`}>
 					<div className="flex gap-2">
 						<input type="checkbox" onChange={onChange} className={`rounded-lg`} placeholder={placeholder} />
-						<p className="font-bold">Full Time</p>
+						<p className={`${labelColor} font-bold`}>Full Time</p>
 					</div>
 				</div>
 			)
