@@ -64,18 +64,10 @@ export const jobsSlice = createSlice({
   initialState,
   reducers: {
     incrementJobs: (state) => {
-      state.jobsListNumber += 6;
-
-			if (state.jobsListNumber > state.fullJobsSearch.length) {
-				state.jobsListNumber = state.fullJobsSearch.length;
-			}
+      state.jobsListNumber = Math.min(state.jobsListNumber + 6, state.fullJobsSearch.length);
     },
 		decreaseJobs: (state) => {
-      state.jobsListNumber -= 6;
-
-			if (state.jobsListNumber <= 6) {
-				state.jobsListNumber = 6;
-			}
+      state.jobsListNumber = Math.max(state.jobsListNumber - 6, 6);
     },
 		updateFullJobsList: (state, action: PayloadAction<jobsPayload>) => {
 			state.fullJobsList = action.payload;
@@ -84,6 +76,8 @@ export const jobsSlice = createSlice({
     },
 		updateFormField: (state, action: PayloadAction<formField>) => {
 			const payload = action.payload;
+
+			state.jobsListNumber = 6;
 			
       state.searchTitle = payload.type === "title" ? payload.text : state.searchTitle;
 			state.searchLocation = payload.type === "location" ? payload.text : state.searchLocation;
@@ -100,42 +94,10 @@ export const jobsSlice = createSlice({
 				return contract && location && title;
 			});
 
+			const filteredJobs = searchResult.slice(0, state.jobsListNumber); 
 
-			const filteredJobs = searchResult.filter((job, idx) => idx < state.jobsListNumber);
-			
-			state.jobsList = filteredJobs;
 			state.fullJobsSearch = searchResult;
-			
-			if (state.loadMoreJobs) {
-				if (state.fullJobsSearch.length === state.jobsListNumber) {
-					state.loadMoreJobs = false;
-					state.loadLessJobs = true;
-				}
-
-				if (state.fullJobsSearch.length > state.jobsListNumber) {
-					state.loadMoreJobs = true;
-					state.loadLessJobs = false;
-				}
-
-				if (state.fullJobsSearch.length < state.jobsListNumber && state.fullJobsSearch.length > 6) {
-					state.loadLessJobs = true;
-					state.loadMoreJobs = false;
-				}
-			}
-
-			if (state.loadLessJobs) {
-				if (state.fullJobsSearch.length > state.jobsListNumber) {
-					if (state.jobsListNumber === 6) {
-						state.loadMoreJobs = true;
-						state.loadLessJobs = false;	
-					} else {
-						state.loadMoreJobs = false;
-						state.loadLessJobs = true;
-					}
-				}
-
-			}
-
+			state.jobsList = filteredJobs;			
 		}
   }
 })

@@ -48,7 +48,7 @@ export default function Home() {
 	const borderColor = mainBg ==="bg-secondColor" ? "border-0" : "md:border md:border-gray2";
 
   const jobsReducer = useAppSelector(state => state.jobsReducer);
-	const {loadMoreJobs, loadLessJobs, fullJobsSearch} = jobsReducer;
+	const {fullJobsSearch, jobsListNumber} = jobsReducer;
   const dispatch = useAppDispatch();
 
 	const increaseJobsList = () => {
@@ -65,13 +65,15 @@ export default function Home() {
 		dispatch(updateFullJobsList(data));
 	}, [])
 
- 
+	const showMoreButton = jobsListNumber < fullJobsSearch.length;
+  const showLessButton = jobsListNumber > 6;
+	
   return (
     <main className={`${mainBg} min-h-screen`}>
 			<SearchForm customStyles={`relative -top-10 z-10 md:rounded-lg md:border-solid ${borderColor} md:w-11/12`} />
       <Jobs />
-			{loadMoreJobs && fullJobsSearch.length > 6 ? <LoadMoreBtn onClick={increaseJobsList} text="Show more" /> 
-			:  loadLessJobs && fullJobsSearch.length > 6 ? <LoadMoreBtn onClick={decreaseJobsList} text="Show Less" />
+			{showMoreButton ? <LoadMoreBtn onClick={increaseJobsList} text="Show more" />
+			: showLessButton ? <LoadMoreBtn onClick={decreaseJobsList} text="Show Less" />
 		  : null}
     </main>
   );
