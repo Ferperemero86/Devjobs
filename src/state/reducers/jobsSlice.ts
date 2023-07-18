@@ -100,11 +100,12 @@ export const jobsSlice = createSlice({
 				return contract && location && title;
 			});
 
+
 			const filteredJobs = searchResult.filter((job, idx) => idx < state.jobsListNumber);
 			
 			state.jobsList = filteredJobs;
 			state.fullJobsSearch = searchResult;
-
+			
 			if (state.loadMoreJobs) {
 				if (state.fullJobsSearch.length === state.jobsListNumber) {
 					state.loadMoreJobs = false;
@@ -114,6 +115,11 @@ export const jobsSlice = createSlice({
 				if (state.fullJobsSearch.length > state.jobsListNumber) {
 					state.loadMoreJobs = true;
 					state.loadLessJobs = false;
+				}
+
+				if (state.fullJobsSearch.length < state.jobsListNumber && state.fullJobsSearch.length > 6) {
+					state.loadLessJobs = true;
+					state.loadMoreJobs = false;
 				}
 			}
 
@@ -127,6 +133,7 @@ export const jobsSlice = createSlice({
 						state.loadLessJobs = true;
 					}
 				}
+
 			}
 
 		}
