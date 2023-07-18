@@ -1,6 +1,7 @@
 "use client";
 
 import "tailwindcss/tailwind.css";
+import "@/styles/global.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import ThemeProvider from "../contexts/ThemeContext";

@@ -58,7 +58,7 @@ const JobDetailsHeader = ({jobDetails}: jobDetails) => {
 	}
 
   return (
-		<div className={`${bgColor} relative -top-5 w-11/12 p-5 rounded-md flex justify-center text-center mx-auto md:-top-10 md:max-w-6xl md:h-40`}>
+		<div className={`${bgColor} relative -top-5 w-11/12 p-5 rounded-md flex justify-center text-center mx-auto md:-top-10 max-w-6xl md:h-40`}>
     	<span style={bgStyles} className={`absolute -top-7 flex justify-center items-center w-16 h-16 rounded-md md:left-0 md:top-0 md:w-40 md:h-full md:rounded-none`}>
 				<span className={`w-10 h-10 relative lg:w-16 lg:h-16`}>
 					{logo ? <Image src={logo} alt="job logo" fill={true} priority={true} /> : null}
@@ -67,8 +67,8 @@ const JobDetailsHeader = ({jobDetails}: jobDetails) => {
 			<div className="mt-10">
 		  	<p className={`${titleColor} text-fifthColor text-lg font-bold mt-1 md:absolute md:left-48 md:top-6`}>{company}</p>
       	<p className="text-fourthColor mt-1 md:absolute md:left-48 md:top-14">{company}.com</p>
-				<Link className={`${titleColor} mt-14 md:absolute md:left-48 md:top-14 underline`} href="/">Back to Search</Link>
-      	<a className="text-thirdColor bg-thirdColor bg-opacity-25 font-bold mt-3 rounded-md p-2 inline-block md:absolute md:right-10" href={website} target="_blank">Company Site</a>
+				<Link className={`${titleColor} absolute top-2 left-5 underline text-sm md:absolute md:left-48 md:top-14 md:mt-14`} href="/">Back to Search</Link>
+      	<a className="text-thirdColor bg-thirdColor bg-opacity-25 font-bold mt-3 rounded-md p-3 inline-block md:absolute md:right-10" href={website} target="_blank">Company Site</a>
 			</div>
   	</div>
 	)
@@ -91,7 +91,7 @@ const JobDetailsBody = ({jobDetails}: jobDetails) => {
 
 
   return (
-		<div className={`${bgColor} w-11/12 relative p-5 rounded-md mx-auto md:py-14 md:max-w-6xl`}>
+		<div className={`${bgColor} px-5 w-11/12 relative p-5 rounded-md mx-auto md:py-14 md:max-w-6xl`}>
     	<div className="w-full">
 				<div className="w-full text-left">
 					<p className="text-fourthColor">{time} . {contract}</p>
@@ -140,7 +140,7 @@ const JobDetailsFooter = ({jobDetails}: jobDetails) => {
 
   return (
 		<div className={`${bgColor} w-full mt-20 relative p-5 mx-auto md:py-5`}>
-    	<div className="w-full py-5">
+    	<div className="w-full py-5 max-w-6xl md:relative md:-translate-x-1/2 md:left-1/2">
 				<div className="w-full text-left">
 					<p className={`${titleColor} hidden text-fifthColor text-lg font-bold mt-2 md:font md:block`}>{title}</p>
 					<p className="hidden text-thirdColor font-bold mt-2 md:block">{company}</p>

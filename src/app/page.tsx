@@ -69,7 +69,7 @@ export default function Home() {
   const showLessButton = jobsListNumber > 6;
 	
   return (
-    <main className={`${mainBg} min-h-screen`}>
+    <main className={`${mainBg} min-h-screen pb-14`}>
 			<SearchForm customStyles={`relative -top-10 z-10 md:rounded-lg md:border-solid ${borderColor} md:w-11/12`} />
       <Jobs />
 			{showMoreButton ? <LoadMoreBtn onClick={increaseJobsList} text="Show more" />
