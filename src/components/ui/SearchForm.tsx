@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-import { filterJobs, updateFormField } from "@/state/reducers/jobsSlice";
+import { filterJobs, updateFormField, displaySearchFilter } from "@/state/reducers/jobsSlice";
 import { useAppDispatch } from "@/state/hooks";
 
 import FormInput from "../FormInput";
@@ -31,15 +31,17 @@ export default function SearchForm ({customStyles}: SearchFormProps) {
 
 			dispatch(updateFormField({text: textSearch, type: "contract"}));
 			dispatch(filterJobs());
-	}	
-
-
+		}
+		
+		const handleFilter = () => {
+			dispatch(displaySearchFilter());
+		} 
 
     return (
-        <form className={`${customStyles} md:flex justify-center max-w-5xl md:mx-auto` }>
-            <FormInput type="title" onChange={searchByTitle} placeholder="Search by Title..." customStyles="h-20 relative inline-block left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 flex-1" />
-						<FormInput type="location" onChange={searchByLocation} placeholder="Filter by location..." customStyles="hidden h-20 relative inline-block left-1/2 -translate-x-1/2 hidden md:left-0 md:translate-x-0 md:flex flex-1" />
-						<FormInput type="contract" onChange={searchByContract} customStyles="rounded-lg h-20 pl-6 relative flex items-center left-1/2 -translate-x-1/2 md:left-0 hidden md:translate-x-0 md:flex flex-1" />
+        <form className={`${customStyles} flex flex-col justify-center max-w-5xl md:mx-auto md:flex-row` }>
+            <FormInput type="title" onChange={searchByTitle} onClick={handleFilter} placeholder="Search by Title..." customStyles="h-20 w-80 relative inline-block left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 flex-1 md:border-0" />
+						<FormInput type="location" onChange={searchByLocation} placeholder="Filter by location..." customStyles="h-20 w-80 mt-3 relative inline-block left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 md:flex flex-1 md:m-0" />
+						<FormInput type="contract" onChange={searchByContract} customStyles="rounded-lg h-20 w-80 mt-2 pl-6 relative inline-block items-center left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 md:flex flex-1" />
         </form>
     )
 }

@@ -34,7 +34,8 @@ export interface JobsState {
 	searchLocation: string,
 	searchContract: string,
 	loadMoreJobs: boolean,
-	loadLessJobs: boolean
+	loadLessJobs: boolean,
+	showFilter: string
 }
 
 type jobsPayload = Job[];
@@ -54,7 +55,8 @@ const initialState: JobsState = {
 	searchLocation: "",
 	searchContract: "",
 	loadMoreJobs: true,
-	loadLessJobs: false
+	loadLessJobs: false,
+	showFilter: "hidden"
 }
 
 
@@ -63,6 +65,9 @@ export const jobsSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
+		displaySearchFilter: (state) => {
+			state.showFilter = state.showFilter === "hidden" ? "" : "hidden";
+		},
     incrementJobs: (state) => {
       state.jobsListNumber = Math.min(state.jobsListNumber + 6, state.fullJobsSearch.length);
     },
@@ -102,7 +107,7 @@ export const jobsSlice = createSlice({
   }
 })
 
-export const { incrementJobs, decreaseJobs, updateFullJobsList, filterJobs, updateFormField } = jobsSlice.actions
+export const { incrementJobs, decreaseJobs, updateFullJobsList, filterJobs, updateFormField, displaySearchFilter } = jobsSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.jobsReducer;

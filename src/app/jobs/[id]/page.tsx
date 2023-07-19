@@ -98,7 +98,7 @@ const JobDetailsBody = ({jobDetails}: jobDetails) => {
 					<p className={`${titleColor} text-fifthColor text-lg font-bold mt-2 md:font`}>{title}</p>
 					<p className="text-thirdColor font-bold mt-2">{location}</p>
 				</div>
-				<a className="mt-10 inline-block bg-thirdColor text-white text-center rounded-sm py-3 w-11/12 md:w-40 md:m-0 md:absolute md:right-10 md:top-20" href={websiteUrl} target="_blank">Apply Now</a>
+				<a className="mt-10 inline-block bg-thirdColor text-white text-center rounded-sm py-3 w-full md:w-40 md:m-0 md:absolute md:right-10 md:top-20" href={websiteUrl} target="_blank">Apply Now</a>
 			</div>
 			<div className="w-full mt-10 md:mt-10">
 				<p className="text-fourthColor">{description}</p>
@@ -145,7 +145,7 @@ const JobDetailsFooter = ({jobDetails}: jobDetails) => {
 					<p className={`${titleColor} hidden text-fifthColor text-lg font-bold mt-2 md:font md:block`}>{title}</p>
 					<p className="hidden text-thirdColor font-bold mt-2 md:block">{company}</p>
 				</div>
-				<a className="inline-block bg-thirdColor text-white text-center rounded-sm py-3 w-11/12 md:w-40 md:m-0 md:absolute md:right-10 md:-translate-y-1/2 md:top-1/2" href={websiteUrl} target="_blank">Apply Now</a>
+				<a className="inline-block bg-thirdColor text-white text-center rounded-sm py-3 w-full md:w-40 md:m-0 md:absolute md:right-10 md:-translate-y-1/2 md:top-1/2" href={websiteUrl} target="_blank">Apply Now</a>
 			</div>
   	</div>
 	)
